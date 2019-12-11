@@ -478,7 +478,7 @@ public class PhotoGalleryFragment extends Fragment {
                 @Override
                 public void onComplete(final String fileUrl) {
                     Log.d("S3File Upload", "Complete!");
-                    ApiHelper.editProfile(fileUrl, null, null, new ApiHelper.ApiCallback() {
+                    ApiHelper.editProfile(fileUrl, AppSocialGlobal.getInstance().me.username, null, new ApiHelper.ApiCallback() {
                         @Override
                         public void onSuccess(JSONObject response) {
                             Log.d("APIEditProfile success", response.toString());
