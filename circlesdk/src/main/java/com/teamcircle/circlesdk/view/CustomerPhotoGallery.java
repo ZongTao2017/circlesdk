@@ -1,5 +1,6 @@
 package com.teamcircle.circlesdk.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
@@ -50,9 +51,21 @@ public class CustomerPhotoGallery extends LinearLayout {
 
     public void setProductId(String productId) {
         mProductId = productId;
-        ProductData productData = AppSocialGlobal.getInstance().findProductById(productId);
-        mPhotos = productData.customerPhotos;
-        mAdapter.notifyDataSetChanged();
+        AppSocialGlobal.getInstance().updateProductById(productId, new AppSocialGlobal.ProductOnUpdateListener() {
+            @Override
+            public void onUpdate(ProductData productData) {
+                mPhotos = productData.customerPhotos;
+                Activity activity = (Activity) getContext();
+                if (activity != null) {
+                    activity.runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           mAdapter.notifyDataSetChanged();
+                       }
+                   });
+                }
+            }
+        });
     }
 
     public class PhotoGalleryAdapter extends RecyclerView.Adapter<PostViewHolder> {

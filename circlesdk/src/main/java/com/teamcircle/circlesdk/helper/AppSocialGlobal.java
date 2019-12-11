@@ -108,6 +108,10 @@ public class AppSocialGlobal {
     public static int newPostResourceId = R.drawable.add_post;
     public static int backResourceId = R.drawable.left_arrow;
 
+    public interface ProductOnUpdateListener {
+        void onUpdate(ProductData productData);
+    }
+
     public static AppSocialGlobal getInstance() {
         if (instance == null) {
             instance = new AppSocialGlobal();
@@ -1212,6 +1216,78 @@ public class AppSocialGlobal {
             }
         }
         return null;
+    }
+
+    public void updateProductById(final String productIdString, final ProductOnUpdateListener listener) {
+        for (int categoryId : allProducts.keySet()) {
+            final CategoryData categoryData = allProducts.get(categoryId);
+            ApiHelper.getProducts(categoryId, "", new ApiHelper.ApiCallback() {
+                @Override
+                public void onSuccess(JSONObject response) {
+                    Log.d("APIGetProducts success", response.toString());
+                    JSONArray products = response.optJSONArray("resultData");
+                    for (int j = 0; j < products.length(); j++) {
+                        JSONObject product = products.optJSONObject(j);
+                        int productId = product.optInt("productId");
+                        String itemNumber = product.optString("productNo");
+                        String productName = product.optString("productName");
+                        JSONArray images = product.optJSONArray("images");
+                        ArrayList<String> photos = new ArrayList<>();
+                        for (int i = 0; i < images.length(); i++) {
+                            photos.add(images.optString(i));
+                            AppSocialGlobal.getInstance().cachePhoto(images.optString(i));
+                        }
+                        int priceLow = product.optInt("defaultPrice");
+                        int priceHigh = product.optInt("defaultPrice");
+                        String installTime = product.optString("installTime");
+                        String link = product.optString("websiteLink");
+                        String description = product.optString("description");
+                        String feature = product.optString("productStatus");
+                        JSONArray variantArray = product.optJSONArray("variants");
+                        ArrayList<ProductVariantData> variants = new ArrayList<>();
+                        for (int k = 0; k < variantArray.length(); k++) {
+                            JSONObject variantObj = variantArray.optJSONObject(k);
+                            int variantId = variantObj.optInt("variantId");
+                            String variantName = variantObj.optString("variantName");
+                            int price = variantObj.optInt("unitPrice");
+                            ProductVariantData variantData = new ProductVariantData(variantId,
+                                    variantName, price);
+                            variants.add(variantData);
+                        }
+
+                        for (ProductData productData : categoryData.products) {
+                            if (productData.itemNumber.equals(itemNumber) &&
+                                    itemNumber.equals(productIdString)) {
+                                productData.customerPhotos.clear();
+                                JSONArray customerPhotoArray = product.optJSONArray("customerPhotos");
+                                for (int k = 0; k < customerPhotoArray.length(); k++) {
+                                    JSONObject photoObj = customerPhotoArray.optJSONObject(k);
+                                    if (photoObj.isNull("postId")) continue;
+                                    int postId = photoObj.optInt("postId");
+                                    String photoUrl = photoObj.optString("photoUrl");
+                                    CustomerPhotoData customerPhotoData = new CustomerPhotoData(postId, photoUrl);
+                                    boolean duplicate = false;
+                                    for (CustomerPhotoData customerPhotoData1 : productData.customerPhotos) {
+                                        if (customerPhotoData1.postId == customerPhotoData.postId) {
+                                            duplicate = true;
+                                        }
+                                    }
+                                    if (!duplicate) {
+                                        productData.customerPhotos.add(customerPhotoData);
+                                    }
+                                }
+                                listener.onUpdate(productData);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onFail(String errorMsg) {
+                    Log.e("APIGetProducts fail", errorMsg);
+                }
+            });
+        }
     }
 
     public void gotoAccount(int userId, Context context) {
