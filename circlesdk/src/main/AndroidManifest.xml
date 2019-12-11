@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.teamcircle.circlesdk">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <application>
+        <activity android:name=".activity.AccountActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.UserPostsActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activity.PhotoPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CameraActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.TrimVideoActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activity.ReadyToPostActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.TagProductActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AddProductTagActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SelectProductActivity" android:screenOrientation="portrait"
+            android:theme="@style/TabAppTheme"/>
+        <activity android:name=".activity.PostActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activity.ShowPhotosActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SearchActivity" android:screenOrientation="portrait"
+            android:theme="@style/TabAppTheme"/>
+        <activity android:name=".activity.HashtagActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FollowActivity" android:screenOrientation="portrait"
+            android:theme="@style/TabAppTheme"/>
+        <activity android:name=".activity.CommentActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activity.FollowingHashtagsActivity" />
+        <activity android:name=".activity.CustomerPhotoActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <service android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService" android:enabled="true" />
+        <service android:name=".service.FileDownloadService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+    </application>
+
+</manifest>

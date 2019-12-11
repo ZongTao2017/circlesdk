@@ -1,0 +1,2 @@
+include ':app', ':circlesdk'
+rootProject.name='TestSDK'

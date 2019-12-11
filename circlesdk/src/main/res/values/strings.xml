@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CircleSDK</string>
+    <string name="title_activity_new_post">NewPost</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <include layout="@layout/back_btn" />
+        <com.teamcircle.circlesdk.text.TextViewBold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/blackColor"
+            android:textSize="16sp"
+            android:text="Hashtags"
+            />
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        android:overScrollMode="never"/>
+</LinearLayout>

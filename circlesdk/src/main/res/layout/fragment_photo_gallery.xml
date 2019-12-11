@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <include layout="@layout/back_btn" />
+        <FrameLayout
+            android:id="@+id/next"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end">
+            <com.teamcircle.circlesdk.text.TextViewAction
+                android:id="@+id/next_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/lightBlueColor"
+                android:textSize="16sp"
+                android:text="Next"/>
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:background="@color/transDarkGrayColor" />
+    </FrameLayout>
+    <com.teamcircle.circlesdk.view.TouchImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@color/backgroundColor"/>
+    <FrameLayout
+        android:id="@+id/resize"
+        android:layout_width="50dp"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/resize"/>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photo_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="1dp"
+        android:background="@color/backgroundColor"/>
+    <FrameLayout
+        android:id="@+id/toggle_photos"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@color/lightBlueColor">
+            <ImageView
+                android:id="@+id/toggle_photos_image"
+                android:layout_width="30dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_triangle" />
+        </FrameLayout>
+
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,99 @@
+<!--
+ Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <declare-styleable name="CustomLayoutLP">
+        <attr name="android:layout_gravity" />
+        <attr name="layout_position">
+            <enum name="middle" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PlayVideoLayout">
+        <attr name="ifClickable" format="boolean" />
+    </declare-styleable>
+
+    <!-- common -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="list_padding">10dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+    <dimen name="font_forgot_pass">16sp</dimen>
+    <dimen name="margin_left_right_arrow">4dp</dimen>
+    <dimen name="padding_news_detail">8dp</dimen>
+    <dimen name="margin_left_right_news_detail">0dp</dimen>
+    <dimen name="photo_frame_width">450px</dimen>
+    <dimen name="photo_frame_height">341px</dimen>
+    <dimen name="login_pass_layout_margin_top">10dp</dimen>
+    <dimen name="login_title_margin_top">30dp</dimen>
+    <dimen name="login_title_margin_bottom">14dp</dimen>
+    <dimen name="login_register_btn_margin_top">6dp</dimen>
+    <dimen name="login_facebook_btn_margin_left">4dp</dimen>
+    <dimen name="margin_check_remember">10dp</dimen>
+    <dimen name="opinion_layout_padding">4dp</dimen>
+    <dimen name="send_button_text_size">12sp</dimen>
+    <dimen name="send_button_height">30dp</dimen>
+    <dimen name="send_button_width">60dp</dimen>
+    <dimen name="opinion_textbox_padding">2dp</dimen>
+    <dimen name="opinion_textsize">12sp</dimen>
+
+    <integer name="gallery_column">3</integer>
+    <integer name="restaurant_review_column">1</integer>
+    <integer name="restaurant_title">18</integer>
+    <integer name="restaurant_detail">16</integer>
+    <integer name="num_cols">1</integer>
+
+    <declare-styleable name="scaleStyle">
+        <attr name="scaleType">
+            <enum name="none" value="0"/>
+
+            <enum name="fitXY" value="1"/>
+            <enum name="fitStart" value="2"/>
+            <enum name="fitCenter" value="3"/>
+            <enum name="fitEnd" value="4"/>
+
+            <enum name="leftTop" value="5"/>
+            <enum name="leftCenter" value="6"/>
+            <enum name="leftBottom" value="7"/>
+            <enum name="centerTop" value="8"/>
+            <enum name="center" value="9"/>
+            <enum name="centerBottom" value="10"/>
+            <enum name="rightTop" value="11"/>
+            <enum name="rightCenter" value="12"/>
+            <enum name="rightBottom" value="13"/>
+
+            <enum name="leftTopCrop" value="14"/>
+            <enum name="leftCenterCrop" value="15"/>
+            <enum name="leftBottomCrop" value="16"/>
+            <enum name="centerTopCrop" value="17"/>
+            <enum name="centerCrop" value="18"/>
+            <enum name="centerBottomCrop" value="19"/>
+            <enum name="rightTopCrop" value="20"/>
+            <enum name="rightCenterCrop" value="21"/>
+            <enum name="rightBottomCrop" value="22"/>
+
+            <enum name="startInside" value="23"/>
+            <enum name="centerInside" value="24"/>
+            <enum name="endInside" value="25"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

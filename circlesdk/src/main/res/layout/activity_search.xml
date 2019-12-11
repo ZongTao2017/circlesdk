@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <include layout="@layout/back_btn" />
+        <com.teamcircle.circlesdk.text.EditTextRegular
+            android:id="@+id/search_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="70dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="70dp"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:textSize="14sp"
+            android:textColor="@color/blackColor"
+            android:hint="Search hashtag"
+            android:textColorHint="@color/darkGrayColor"/>
+        <ImageView
+            android:id="@+id/clear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="20dp"
+            android:padding="15dp"
+            android:src="@drawable/cancel"
+            android:tint="@color/darkGrayColor"/>
+    </FrameLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:tabIndicatorColor="@color/lightBlueColor"
+        app:tabSelectedTextColor="@color/lightBlueColor"
+        app:tabTextColor="@color/lightGrayColor"
+        app:tabMaxWidth="0dp"
+        app:tabGravity="fill"
+        app:tabMode="fixed"/>
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:divider="@null"/>
+</LinearLayout>

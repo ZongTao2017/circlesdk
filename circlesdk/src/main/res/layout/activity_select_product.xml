@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <include layout="@layout/back_btn" />
+        <com.teamcircle.circlesdk.text.TextViewRegular
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/blackColor"
+            android:textSize="16sp"
+            android:text="Select Product"/>
+        <FrameLayout
+            android:id="@+id/done"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end">
+            <com.teamcircle.circlesdk.text.TextViewAction
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/lightBlueColor"
+                android:textSize="16sp"
+                android:text="Done"/>
+        </FrameLayout>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/transDarkGrayColor"/>
+    <FrameLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_search"
+                android:tint="@color/darkGrayColor"/>
+        </FrameLayout>
+        <com.teamcircle.circlesdk.text.EditTextRegular
+            android:id="@+id/search_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="60dp"
+            android:paddingEnd="10dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="Type name or product id"
+            android:textColorHint="@color/darkGrayColor"
+            android:textSize="14sp"
+            android:textColor="@color/blackColor"
+            android:background="@null"/>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/transDarkGrayColor"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:background="@color/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:tabIndicatorColor="@color/greenColor"
+        app:tabSelectedTextColor="@color/blackColor"
+        app:tabTextColor="@color/lightGrayColor" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ListView
+        android:id="@+id/product_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"/>
+</LinearLayout>

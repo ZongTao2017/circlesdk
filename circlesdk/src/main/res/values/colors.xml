@@ -1,0 +1,38 @@
+<!--
+ Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <color name="backgroundColor">#ffffff</color>
+    <color name="lightBlueColor">#54b8de</color>
+    <color name="whiteLightBlueColor">#9CD4FC</color>
+    <color name="grayColor">#999999</color>
+    <color name="lightGrayColor">#c3c3c3</color>
+    <color name="darkGrayColor">#76797c</color>
+    <color name="transDarkGrayColor">#8076797c</color>
+    <color name="veryDarkGrayColor">#373737</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="blackColor">#000000</color>
+    <color name="greenColor">#5fb257</color>
+    <color name="transparentWhite">#0Cffffff</color>
+    <color name="transparentWhiteSelected">#2Cffffff</color>
+    <color name="transparentBlack">#80000000</color>
+    <color name="redColor">#ff0000</color>
+    <color name="green_1">#0da160</color>
+    <color name="green_2">#509e2f</color>
+    <color name="green_3">#489334</color>
+
+
+</resources>

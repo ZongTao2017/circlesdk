@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <include layout="@layout/back_btn" />
+        <FrameLayout
+            android:id="@+id/done"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end">
+            <com.teamcircle.circlesdk.text.TextViewAction
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/lightBlueColor"
+                android:textSize="16sp"
+                android:text="Done"/>
+        </FrameLayout>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grayColor" />
+    <FrameLayout
+        android:id="@+id/video_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.teamcircle.circlesdk.view.PlayVideoLayout
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ifClickable="false"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/tags_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/add_tag"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_add"
+                        android:tint="@color/blackColor"/>
+                    <com.teamcircle.circlesdk.text.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/blackColor"
+                        android:textSize="16sp"
+                        android:text="Add Product Tag"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_gravity="bottom"
+                    android:background="@color/darkGrayColor" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

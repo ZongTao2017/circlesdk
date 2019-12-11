@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/backgroundColor">
+        <include layout="@layout/back_btn" />
+        <FrameLayout
+            android:id="@+id/sound"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/sound_image"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:tint="@color/blackColor"
+                android:src="@drawable/ic_sound"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/next"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end">
+            <com.teamcircle.circlesdk.text.TextViewAction
+                android:id="@+id/next_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/lightBlueColor"
+                android:textSize="16sp"
+                android:text="Next"/>
+        </FrameLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/video_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.teamcircle.circlesdk.view.PlayVideoLayout
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:ifClickable="false"/>
+    </FrameLayout>
+    <com.teamcircle.circlesdk.view.TrimVideoView
+        android:id="@+id/trim_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"/>
+
+</LinearLayout>
