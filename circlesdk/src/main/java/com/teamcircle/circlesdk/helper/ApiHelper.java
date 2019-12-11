@@ -90,8 +90,8 @@ public class ApiHelper {
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("avatar", profileUrl);
-            jsonObject.put("username", CharHelper.getUnicodeString(username));
-            jsonObject.put("bio", CharHelper.getUnicodeString(bio));
+//            jsonObject.put("username", CharHelper.getUnicodeString(username));
+//            jsonObject.put("bio", CharHelper.getUnicodeString(bio));
             put("users/" + AppSocialGlobal.getInstance().me.userId, jsonObject.toString(), callback);
         } catch (JSONException e) {
 
