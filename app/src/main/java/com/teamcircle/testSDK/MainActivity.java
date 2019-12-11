@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CircleApi.reportUserInfo(1, "");
+        CircleApi.reportUserInfo(2, "");
         CircleApi.setBackIcon(R.drawable.back);
 
         CircleFragment circle = new CircleFragment();
