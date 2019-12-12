@@ -25,7 +25,7 @@ public class CircleApi {
         AmazonS3Helper.getInstance().init(appContext);
     }
 
-    public static void reportUserInfo(final int userId, String username) {
+    public static void reportUserInfo(final int userId, final String username) {
         if (userId == -1) {
             AppSocialGlobal.getInstance().signOut();
         } else {
@@ -33,6 +33,18 @@ public class CircleApi {
                 @Override
                 public void onSuccess(JSONObject response) {
                     AppSocialGlobal.getInstance().signIn(userId);
+                    AppSocialGlobal.getInstance().me.username = username;
+                    ApiHelper.editUsername(username, new ApiHelper.ApiCallback() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+
+                        }
+
+                        @Override
+                        public void onFail(String errorMsg) {
+
+                        }
+                    });
                 }
 
                 @Override

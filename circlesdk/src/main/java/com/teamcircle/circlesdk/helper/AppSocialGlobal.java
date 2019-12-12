@@ -175,6 +175,10 @@ public class AppSocialGlobal {
         return false;
     }
 
+    public boolean checkIfSignIn() {
+        return me.userId != -1;
+    }
+
     public void signIn(final int userId) {
         me = new UserData(userId);
         ApiHelper.getUserPosts(userId, new ApiHelper.ApiCallback() {

@@ -98,6 +98,16 @@ public class ApiHelper {
         }
     }
 
+    public static void editUsername(String username, ApiCallback callback) {
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("username", CharHelper.getUnicodeString(username));
+            put("users/" + AppSocialGlobal.getInstance().me.userId, jsonObject.toString(), callback);
+        } catch (JSONException e) {
+
+        }
+    }
+
     public static void sendPost(PostData postData, boolean isContest, String email, ApiCallback callback) {
         try {
             JSONObject jsonObject = new JSONObject();
