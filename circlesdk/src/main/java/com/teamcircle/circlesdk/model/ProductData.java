@@ -47,5 +47,6 @@ public class ProductData implements Serializable {
         this.photos.add(tagData.productImage);
         this.priceLow = this.priceHigh = tagData.price;
         this.category = tagData.productCategory;
+        this.customerPhotos = new ArrayList<>();
     }
 }

@@ -54,15 +54,17 @@ public class CustomerPhotoGallery extends LinearLayout {
         AppSocialGlobal.getInstance().updateProductById(productId, new AppSocialGlobal.ProductOnUpdateListener() {
             @Override
             public void onUpdate(ProductData productData) {
-                mPhotos = productData.customerPhotos;
-                Activity activity = (Activity) getContext();
-                if (activity != null) {
-                    activity.runOnUiThread(new Runnable() {
-                       @Override
-                       public void run() {
-                           mAdapter.notifyDataSetChanged();
-                       }
-                   });
+                if (productData != null) {
+                    mPhotos = productData.customerPhotos;
+                    Activity activity = (Activity) getContext();
+                    if (activity != null) {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAdapter.notifyDataSetChanged();
+                            }
+                        });
+                    }
                 }
             }
         });
