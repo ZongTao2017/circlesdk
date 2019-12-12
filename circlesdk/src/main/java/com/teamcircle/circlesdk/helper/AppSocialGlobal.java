@@ -1039,6 +1039,7 @@ public class AppSocialGlobal {
         allProducts = new LinkedHashMap<>();
         CategoryData categoryData = new CategoryData(0, "History");
         allProducts.put(0, categoryData);
+        categoryNumber = 0;
 
         ApiHelper.getCategories(new ApiHelper.ApiCallback() {
             @Override

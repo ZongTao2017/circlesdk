@@ -233,10 +233,7 @@ public class ReadyToPostActivity extends Activity {
                             public void onSuccess(JSONObject response) {
                                 Log.d("APISendPosts success", response.toString());
                                 if (!isContest) {
-                                    int postId = response.optInt("resultData");
-                                    AppSocialGlobal.getInstance().tmp_post.postId = postId;
-                                    AppSocialGlobal.getInstance().addPost();
-                                    EventBus.getDefault().post(new MessageEvent(MessageEvent.MessageEventType.UPDATE_POST));
+                                    AppSocialGlobal.getInstance().getAllProductsAndPosts();
                                 }
                             }
 
@@ -355,10 +352,7 @@ public class ReadyToPostActivity extends Activity {
                                 @Override
                                 public void onSuccess(JSONObject response) {
                                     Log.d("APISendPosts success", response.toString());
-                                    int postId = response.optInt("resultData");
-                                    AppSocialGlobal.getInstance().tmp_post.postId = postId;
-                                    AppSocialGlobal.getInstance().addPost();
-                                    EventBus.getDefault().post(new MessageEvent(MessageEvent.MessageEventType.UPDATE_POST));
+                                    AppSocialGlobal.getInstance().getAllProductsAndPosts();
                                 }
 
                                 @Override

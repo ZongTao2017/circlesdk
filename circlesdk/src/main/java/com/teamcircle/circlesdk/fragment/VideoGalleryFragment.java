@@ -107,6 +107,11 @@ public class VideoGalleryFragment extends Fragment {
         if (mVideos.size() > 0) {
             setVideo(mVideos.get(0));
             mVideoCovers = new Bitmap[mVideos.size()];
+            mEnableNext = true;
+            mNextText.setTextColor(getResources().getColor(R.color.lightBlueColor));
+        } else {
+            mEnableNext = false;
+            mNextText.setTextColor(getResources().getColor(R.color.grayColor));
         }
 
         final int size = AppSocialGlobal.getScreenWidth(getContext());
@@ -264,8 +269,6 @@ public class VideoGalleryFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         getVideoCovers();
 
-
-
         return view;
     }
 
@@ -290,6 +293,11 @@ public class VideoGalleryFragment extends Fragment {
                     if (mVideos.size() > 0) {
                         setVideo(mVideos.get(0));
                         mVideoCovers = new Bitmap[mVideos.size()];
+                        mEnableNext = true;
+                        mNextText.setTextColor(getResources().getColor(R.color.lightBlueColor));
+                    } else {
+                        mEnableNext = false;
+                        mNextText.setTextColor(getResources().getColor(R.color.grayColor));
                     }
                     mAdapter.notifyDataSetChanged();
                     getVideoCovers();

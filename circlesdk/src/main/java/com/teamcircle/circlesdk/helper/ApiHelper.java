@@ -131,13 +131,12 @@ public class ApiHelper {
                     JSONArray tags = new JSONArray();
                     for (TagData tagData : photoData.tags) {
                         JSONObject tag = new JSONObject();
-                        if (tagData.productId != 0) {
-                            tag.put("productId", tagData.productId);
-                        }
+                        tag.put("productId", tagData.productId);
                         tag.put("productCategory", tagData.productCategory);
                         tag.put("productImage", tagData.productImage);
                         tag.put("productItemNumber", tagData.productItemNumber);
                         tag.put("productName", tagData.productName);
+                        tag.put("productPrice", tagData.price);
                         tag.put("x", tagData.percentX);
                         tag.put("y", tagData.percentY);
                         tags.put(tag);

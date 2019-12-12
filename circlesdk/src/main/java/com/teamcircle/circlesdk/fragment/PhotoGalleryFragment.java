@@ -66,6 +66,7 @@ public class PhotoGalleryFragment extends Fragment {
     private boolean mIsToggled;
     private Handler mHandler;
     private FrameLayout mNext;
+    private TextView mNextText;
     private PointF mTouchPoint;
     private boolean mIsGoingUp;
     private boolean mIsClick;
@@ -201,11 +202,11 @@ public class PhotoGalleryFragment extends Fragment {
             }
         });
         mNext = view.findViewById(R.id.next);
-        TextView nextText = view.findViewById(R.id.next_text);
+        mNextText = view.findViewById(R.id.next_text);
         if (AppSocialGlobal.getInstance().photoPickerType == 0) {
-            nextText.setText("Done");
+            mNextText.setText("Done");
         } else {
-            nextText.setText("Next");
+            mNextText.setText("Next");
         }
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,6 +228,11 @@ public class PhotoGalleryFragment extends Fragment {
 
         if (mPhotos.size() > 0) {
             setImage(mPhotos.get(0), false);
+            mNext.setClickable(true);
+            mNextText.setTextColor(getResources().getColor(R.color.lightBlueColor));
+        } else {
+            mNext.setClickable(false);
+            mNextText.setTextColor(getResources().getColor(R.color.grayColor));
         }
         mImageView.setImageCallback(new TouchImageView.ImageCallback() {
             @Override
@@ -259,6 +265,11 @@ public class PhotoGalleryFragment extends Fragment {
                     mPhotos.addAll(photos);
                     if (mPhotos.size() > 0) {
                         setImage(mPhotos.get(0), false);
+                        mNext.setClickable(true);
+                        mNextText.setTextColor(getResources().getColor(R.color.lightBlueColor));
+                    } else {
+                        mNext.setClickable(false);
+                        mNextText.setTextColor(getResources().getColor(R.color.grayColor));
                     }
                     mAdapter.notifyDataSetChanged();
                 }
@@ -399,7 +410,10 @@ public class PhotoGalleryFragment extends Fragment {
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
         options.inScaled = false;
         Bitmap bitmap = BitmapFactory.decodeFile(path, options);
-        if (bitmap == null) return;
+        if (bitmap == null) {
+
+            return;
+        }
         Matrix matrix = new Matrix();
         matrix.postRotate(photoData.orientation);
         Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

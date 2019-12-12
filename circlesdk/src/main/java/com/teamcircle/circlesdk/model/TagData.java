@@ -24,6 +24,7 @@ public class TagData implements Serializable {
     }
 
     public TagData(String productItemNumber, String productCategory, String productName, String productImage, int price) {
+        this.productId = 0;
         this.productImage = productImage;
         this.productCategory = productCategory;
         this.productItemNumber = productItemNumber;
