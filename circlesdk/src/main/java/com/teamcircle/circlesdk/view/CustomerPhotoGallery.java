@@ -26,6 +26,7 @@ public class CustomerPhotoGallery extends LinearLayout {
     private String mProductId;
     private ArrayList<CustomerPhotoData> mPhotos;
     private PhotoGalleryAdapter mAdapter;
+    private RecyclerView mRecyclerView;
 
     public CustomerPhotoGallery(Context context) {
         super(context);
@@ -38,15 +39,15 @@ public class CustomerPhotoGallery extends LinearLayout {
     }
 
     private void init(Context context) {
-        RecyclerView recyclerView = new RecyclerView(context);
-        recyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        mRecyclerView = new RecyclerView(context);
+        mRecyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         LinearLayoutManager layoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        addView(recyclerView);
+        mRecyclerView.setLayoutManager(layoutManager);
+        addView(mRecyclerView);
 
         mPhotos = new ArrayList<>();
         mAdapter = new PhotoGalleryAdapter();
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     public void setProductId(String productId) {
@@ -55,6 +56,7 @@ public class CustomerPhotoGallery extends LinearLayout {
             @Override
             public void onUpdate(ProductData productData) {
                 if (productData != null) {
+                    mRecyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AppSocialGlobal.dpToPx(getContext(), 150)));
                     mPhotos = productData.customerPhotos;
                     Activity activity = (Activity) getContext();
                     if (activity != null) {

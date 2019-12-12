@@ -1284,6 +1284,7 @@ public class AppSocialGlobal {
                                     }
                                 }
                                 listener.onUpdate(productData);
+                                return;
                             }
                         }
                     }

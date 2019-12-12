@@ -38,9 +38,9 @@ public class TagView extends FrameLayout {
     float mImageWidth, mImageHeight;
     float mImageStartX, mImageStartY;
     Paint mTextPaint;
-    Paint mPricePaint;
+//    Paint mPricePaint;
     String mText;
-    String mPrice;
+//    String mPrice;
     ImageView mImageView;
 
     int mPadding, mImageSize, mTagWidth, mTagHeight, mTextSize;
@@ -82,17 +82,17 @@ public class TagView extends FrameLayout {
             mTextPaint.setTypeface(Typeface.createFromAsset(context.getAssets(),
                     AppSocialGlobal.textFontRegular));
         }
-        mPricePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPricePaint.setColor(Color.GRAY);
+//        mPricePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//        mPricePaint.setColor(Color.GRAY);
         mTextPaint.setTextSize(mTextSize);
-        mPricePaint.setTextSize(mTextSize);
-        if (AppSocialGlobal.textFontProductPrice != null) {
-            mPricePaint.setTypeface(Typeface.createFromAsset(context.getAssets(),
-                    AppSocialGlobal.textFontProductPrice));
-        } else if (AppSocialGlobal.textFontRegular != null) {
-            mPricePaint.setTypeface(Typeface.createFromAsset(context.getAssets(),
-                    AppSocialGlobal.textFontRegular));
-        }
+//        mPricePaint.setTextSize(mTextSize);
+//        if (AppSocialGlobal.textFontProductPrice != null) {
+//            mPricePaint.setTypeface(Typeface.createFromAsset(context.getAssets(),
+//                    AppSocialGlobal.textFontProductPrice));
+//        } else if (AppSocialGlobal.textFontRegular != null) {
+//            mPricePaint.setTypeface(Typeface.createFromAsset(context.getAssets(),
+//                    AppSocialGlobal.textFontRegular));
+//        }
 
         mImageView = new ImageView(context);
         mImageView.setLayoutParams(new LayoutParams(mImageSize, mImageSize));
@@ -102,17 +102,16 @@ public class TagView extends FrameLayout {
         ProductData productData = AppSocialGlobal.getInstance().getProductById(tagData.productId);
         if (productData != null) {
             mText = productData.name;
-            if (productData.priceLow == productData.priceHigh) {
-                mPrice = String.format("$%d", productData.priceLow / 100);
-            } else {
-                mPrice = String.format("$%d - $%d", productData.priceLow / 100, productData.priceHigh / 100);
-            }
+//            if (productData.priceLow == productData.priceHigh) {
+//                mPrice = String.format("$%d", productData.priceLow / 100);
+//            } else {
+//                mPrice = String.format("$%d - $%d", productData.priceLow / 100, productData.priceHigh / 100);
+//            }
             String productImageUrl = productData.photos.get(0);
             AppSocialGlobal.loadImage(productImageUrl, mImageView);
         } else {
-
             mText = "";
-            mPrice = "";
+//            mPrice = "";
         }
     }
 
@@ -150,17 +149,15 @@ public class TagView extends FrameLayout {
         ArrayList<String> textList = split(mText);
         float priceX = x - mTagWidth / 2 + mPadding * 2 + mImageSize;
         float priceY;
-        if (textList.size() == 1) {
-            priceY = y + mPadding * 1.5f + mTagHeight / 2;
-        } else if (textList.size() == 2) {
-            priceY = y + mPadding * 1.5f + 3 * mTagHeight / 4;
-        } else {
+        if (textList.size() > 3) {
             String text0 = textList.get(0);
             String text1 = textList.get(1);
-            text1 = text1.substring(0, text1.length() - 3) + "...";
+            String text2 = textList.get(2);
+            text2 = text2.substring(0, text2.length() - 3) + "...";
             textList.clear();
             textList.add(text0);
             textList.add(text1);
+            textList.add(text2);
             priceX = x - mTagWidth / 2 + mPadding * 2 + mImageSize;
             priceY = y + mPadding * 1.5f + 3 * mTagHeight / 4;
         }
@@ -168,7 +165,7 @@ public class TagView extends FrameLayout {
         for (int i = 0; i < textList.size(); i++) {
             canvas.drawText(textList.get(i), x - mTagWidth / 2 + mPadding * 2 + mImageSize, y + mPadding * 1.5f + (i + 1) * mTagHeight / 4, mTextPaint);
         }
-        canvas.drawText(mPrice, priceX, priceY, mPricePaint);
+//        canvas.drawText(mPrice, priceX, priceY, mPricePaint);
 
         super.dispatchDraw(canvas);
 
