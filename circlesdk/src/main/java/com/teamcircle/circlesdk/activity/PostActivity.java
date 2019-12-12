@@ -269,9 +269,9 @@ public class PostActivity extends Activity {
                                 TagData tagData = mPostData.photos.get(pos).tags.get(i);
                                 final FrameLayout tagLayout;
                                 if (mPostData.photos.get(pos).tags.size() == 1) {
-                                    tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false, mPostId, "post");
+                                    tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false);
                                 } else {
-                                    tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, i + 1, false, mPostId, "post");
+                                    tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, i + 1, false);
                                 }
                                 tagLayout.setTag(0);
                                 adapter.reset();
@@ -313,9 +313,9 @@ public class PostActivity extends Activity {
                         TagData tagData = mPostData.photos.get(0).tags.get(i);
                         final FrameLayout tagLayout;
                         if (mPostData.photos.get(0).tags.size() == 1) {
-                            tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false, mPostId, "post");
+                            tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false);
                         } else {
-                            tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, i + 1, false, mPostId, "post");
+                            tagLayout = AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, i + 1, false);
                         }
                         tagLayout.setTag(0);
                         tagLayout.setOnClickListener(new View.OnClickListener() {
@@ -348,7 +348,7 @@ public class PostActivity extends Activity {
                     videoView.setVideo(mPostData.video);
                     for (int i = 0; i < mPostData.video.tags.size(); i++) {
                         TagData tagData = mPostData.video.tags.get(i);
-                        AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false, mPostId, "post");
+                        AppSocialGlobal.addTagView(PostActivity.this, tagsLayout, tagData, 0, false);
                     }
                     String videoPath = videoView.getVideoPath();
                     if (videoPath != null && !videoPath.startsWith("http")) {

@@ -9,6 +9,10 @@ public class TagData implements Serializable {
     public float percentY;
     public int productId;
     public String productImage;
+    public String productItemNumber;
+    public String productName;
+    public String productCategory;
+    public int price;
 
     public TagData() {
 
@@ -19,9 +23,14 @@ public class TagData implements Serializable {
         this.percentY = percentY;
     }
 
-    public TagData(int productId, String productImage) {
-        this.productId = productId;
+    public TagData(String productItemNumber, String productCategory, String productName, String productImage, int price) {
         this.productImage = productImage;
+        this.productCategory = productCategory;
+        this.productItemNumber = productItemNumber;
+        this.productName = productName;
+        this.price = price;
+        this.percentX = 0;
+        this.percentY = 0;
     }
 
     public TagData(int productId, String productImage, float percentX, float percentY) {

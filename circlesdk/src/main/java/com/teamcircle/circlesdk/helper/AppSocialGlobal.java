@@ -77,7 +77,7 @@ public class AppSocialGlobal {
     public LinkedHashMap<Integer, PostData> allPosts;
     public LinkedHashMap<Integer, PostData> mainPosts;
     public int photoPickerType; // 0:change profile image; 1:send photo post; 2:send video post; 3:send photo contest
-    public int newPostType; // 0:main; 1:me
+    public int newPostType; // 0:main 1:me 2:product detail
     public boolean isMuted = true;
     private int categoryNumber = 0;
     public static CircleApi.OnPopLoginListener onPopLoginListener;
@@ -964,10 +964,16 @@ public class AppSocialGlobal {
         return null;
     }
 
-    public static FrameLayout addTagView(final Context context, final LinearLayout tagsLayout, final TagData tagData, int number, boolean deletable, final int postId, final String eventName) {
+    public ProductData getProduct(TagData tagData) {
+        if (tagData.productId == 0) {
+            return new ProductData(tagData);
+        } else return getProductById(tagData.productId);
+    }
+
+    public static FrameLayout addTagView(final Context context, final LinearLayout tagsLayout, final TagData tagData, int number, boolean deletable) {
         LayoutInflater inflater = LayoutInflater.from(context);
         final FrameLayout layout = (FrameLayout) inflater.inflate(R.layout.tag_list_item, null, false);
-        final ProductData productData = AppSocialGlobal.getInstance().getProductById(tagData.productId);
+        final ProductData productData = AppSocialGlobal.getInstance().getProduct(tagData);
         ImageView productImage = layout.findViewById(R.id.product_image);
         TextView productName = layout.findViewById(R.id.product_name);
         TextView productPrice = layout.findViewById(R.id.product_price);

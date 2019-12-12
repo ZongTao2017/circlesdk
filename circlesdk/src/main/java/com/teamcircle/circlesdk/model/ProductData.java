@@ -16,6 +16,7 @@ public class ProductData implements Serializable {
     public ArrayList<ProductVariantData> variants;
     public String feature;
     public ArrayList<CustomerPhotoData> customerPhotos;
+    public String category;
 
     public ProductData(int productId, String name, ArrayList<String> photos, int priceLow, int priceHigh,
                        String installTime, String link, String description, ArrayList<ProductVariantData> variants, String feature) {
@@ -37,5 +38,14 @@ public class ProductData implements Serializable {
                 break;
         }
         this.customerPhotos = new ArrayList<>();
+    }
+
+    public ProductData(TagData tagData) {
+        this.itemNumber = tagData.productItemNumber;
+        this.name = tagData.productName;
+        this.photos = new ArrayList<>();
+        this.photos.add(tagData.productImage);
+        this.priceLow = this.priceHigh = tagData.price;
+        this.category = tagData.productCategory;
     }
 }

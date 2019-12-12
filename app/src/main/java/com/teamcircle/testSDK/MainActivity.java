@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.teamcircle.circlesdk.CircleApi;
 import com.teamcircle.circlesdk.fragment.CircleFragment;
+import com.teamcircle.circlesdk.view.NewPostButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        NewPostButton newPostButton = findViewById(R.id.new_post_btn);
+        newPostButton.setProductInfo("a332a1a5-18fd-47c7-a5bd-b7fdfacb1511", "Nike", "Nike LD Waffle Sacai Black", "https://stockx.imgix.net/Free-Metcon-2-Cool-Grey.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1562184677", 8900);
     }
 }

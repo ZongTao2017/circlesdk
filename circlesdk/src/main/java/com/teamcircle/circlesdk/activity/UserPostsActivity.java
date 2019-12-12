@@ -352,9 +352,9 @@ public class UserPostsActivity extends Activity {
                             TagData tagData = postData.photos.get(pos).tags.get(i);
                             final FrameLayout tagLayout;
                             if (postData.photos.get(pos).tags.size() == 1) {
-                                tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false, postData.postId, "user_posts");
+                                tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false);
                             } else {
-                                tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, i + 1, false, postData.postId, "user_posts");
+                                tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, i + 1, false);
                             }
                             tagLayout.setTag(0);
                             adapter.reset();
@@ -396,9 +396,9 @@ public class UserPostsActivity extends Activity {
                     TagData tagData = postData.photos.get(0).tags.get(i);
                     final FrameLayout tagLayout;
                     if (postData.photos.get(0).tags.size() == 1) {
-                        tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false, postData.postId, "user_posts");
+                        tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false);
                     } else {
-                        tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, i + 1, false, postData.postId, "user_posts");
+                        tagLayout = AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, i + 1, false);
                     }
                     tagLayout.setTag(0);
                     tagLayout.setOnClickListener(new View.OnClickListener() {
@@ -430,7 +430,7 @@ public class UserPostsActivity extends Activity {
                 holder.videoView.setVideo(postData.video);
                 for (int i = 0; i < postData.video.tags.size(); i++) {
                     TagData tagData = postData.video.tags.get(i);
-                    AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false, postData.postId, "user_posts");
+                    AppSocialGlobal.addTagView(UserPostsActivity.this, holder.tagsLayout, tagData, 0, false);
                 }
                 holder.videoView.setOnClickListener(new DoubleClick(new DoubleClickListener() {
                     @Override

@@ -95,14 +95,16 @@ public class PhotoPagerAdapter extends PagerAdapter {
         ArrayList<TagNumberView> tags = new ArrayList<>();
         if (photoData.tags.size() == 1) {
             TagData tagData = photoData.tags.get(0);
-            TagNumberView tagNumberView = new TagNumberView(mContext, tagData, 0, screenWidth, height);
-            tagsLayout.addView(tagNumberView);
-            tags.add(tagNumberView);
-            if (mIsShowing)
-                tagNumberView.setVisibility(View.VISIBLE);
-            else
-                tagNumberView.setVisibility(View.GONE);
-            mTagsMap.put(position, tags);
+            if (tagData.percentX > 0 && tagData.percentY > 0) {
+                TagNumberView tagNumberView = new TagNumberView(mContext, tagData, 0, screenWidth, height);
+                tagsLayout.addView(tagNumberView);
+                tags.add(tagNumberView);
+                if (mIsShowing)
+                    tagNumberView.setVisibility(View.VISIBLE);
+                else
+                    tagNumberView.setVisibility(View.GONE);
+                mTagsMap.put(position, tags);
+            }
         } else if (photoData.tags.size() > 1) {
             for (int i = 0; i < photoData.tags.size(); i++) {
                 TagData tagData = photoData.tags.get(i);

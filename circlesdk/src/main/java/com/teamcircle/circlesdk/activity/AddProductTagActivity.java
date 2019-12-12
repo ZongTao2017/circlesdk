@@ -118,7 +118,7 @@ public class AddProductTagActivity extends Activity {
         });
 
         for (TagData tagData : mVideoData.tags) {
-            AppSocialGlobal.addTagView(AddProductTagActivity.this, mTagsLayout, tagData, 0, true, 0, "new_post_video");
+            AppSocialGlobal.addTagView(AddProductTagActivity.this, mTagsLayout, tagData, 0, true);
         }
     }
 
@@ -174,7 +174,7 @@ public class AddProductTagActivity extends Activity {
                             .show();
                 } else {
                     mVideoData.tags.add(tagData);
-                    AppSocialGlobal.addTagView(AddProductTagActivity.this, mTagsLayout, tagData, 0, true, 0, "new_post_video");
+                    AppSocialGlobal.addTagView(AddProductTagActivity.this, mTagsLayout, tagData, 0, true);
                 }
                 break;
             case DELETE_TAG:

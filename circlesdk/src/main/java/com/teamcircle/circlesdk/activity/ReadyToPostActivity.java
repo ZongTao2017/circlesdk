@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
@@ -45,7 +46,6 @@ public class ReadyToPostActivity extends Activity {
     private ArrayList<PhotoData> mPhotos;
     private VideoData mVideoData;
     private EditText mCaptionText;
-    private TextView mDoneText;
     private int mUploadCount = 0;
 
     @Override
@@ -87,6 +87,7 @@ public class ReadyToPostActivity extends Activity {
         ImageView multi = findViewById(R.id.multi);
         ImageView playVideo = findViewById(R.id.video_play);
         FrameLayout tagProduct = findViewById(R.id.tag_product);
+        LinearLayout tagInfo = findViewById(R.id.tag_info);
 
         if (AppSocialGlobal.getInstance().photoPickerType == 2) {
             mVideoData = AppSocialGlobal.getInstance().tmp_post.video;
@@ -125,6 +126,18 @@ public class ReadyToPostActivity extends Activity {
                     startActivity(new Intent(ReadyToPostActivity.this, ShowPhotosActivity.class));
                 }
             });
+        }
+
+        if (AppSocialGlobal.getInstance().newPostType == 2) {
+            tagProduct.setVisibility(View.GONE);
+            AppSocialGlobal.addTagView(ReadyToPostActivity.this, tagInfo, AppSocialGlobal.getInstance().tmp_tag, 0, false);
+            if (AppSocialGlobal.getInstance().photoPickerType == 2) {
+                mVideoData.tags.add(AppSocialGlobal.getInstance().tmp_tag);
+            } else {
+                for (PhotoData photoData : mPhotos) {
+                    photoData.tags.add(AppSocialGlobal.getInstance().tmp_tag);
+                }
+            }
         }
 
         tagProduct.setOnClickListener(new View.OnClickListener() {
@@ -168,8 +181,6 @@ public class ReadyToPostActivity extends Activity {
                 }
             }
         });
-
-        mDoneText = findViewById(R.id.done_text);
     }
 
     @Override
