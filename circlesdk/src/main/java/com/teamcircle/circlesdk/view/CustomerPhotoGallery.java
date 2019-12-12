@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +29,7 @@ public class CustomerPhotoGallery extends LinearLayout {
     private ArrayList<CustomerPhotoData> mPhotos;
     private PhotoGalleryAdapter mAdapter;
     private RecyclerView mRecyclerView;
+    private int mDividerWidth;
 
     public CustomerPhotoGallery(Context context) {
         super(context);
@@ -43,6 +46,9 @@ public class CustomerPhotoGallery extends LinearLayout {
         mRecyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         LinearLayoutManager layoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
+        itemDecor.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.recyclerview_divider));
+        mRecyclerView.addItemDecoration(itemDecor);
         addView(mRecyclerView);
 
         mPhotos = new ArrayList<>();
@@ -56,7 +62,8 @@ public class CustomerPhotoGallery extends LinearLayout {
             @Override
             public void onUpdate(ProductData productData) {
                 if (productData != null) {
-                    mRecyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AppSocialGlobal.dpToPx(getContext(), 150)));
+                    int size = (int) (AppSocialGlobal.getScreenWidth(getContext()) / (2 + 1 / 3f));
+                    mRecyclerView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, size));
                     mPhotos = productData.customerPhotos;
                     Activity activity = (Activity) getContext();
                     if (activity != null) {

@@ -18,7 +18,7 @@ public class ProductActivity extends Activity {
         setContentView(R.layout.activity_product);
         String productId = getIntent().getStringExtra("productId");
         CustomerPhotoGallery gallery = findViewById(R.id.customer_photos);
-        gallery.setProductId("sdfsdf");
+        gallery.setProductId(productId);
 
         ImageView backImage = findViewById(com.teamcircle.circlesdk.R.id.back_image);
         backImage.setImageResource(AppSocialGlobal.backResourceId);
