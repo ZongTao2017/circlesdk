@@ -540,6 +540,7 @@ public class AccountActivity extends Activity {
     }
 
     private void getUserPosts() {
+        haveMoreToLoad = true;
         ApiHelper.getUserPosts(mUserId, new ApiHelper.ApiCallback() {
             @Override
             public void onSuccess(JSONObject response) {

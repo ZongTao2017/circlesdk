@@ -55,7 +55,6 @@ public class VideoGalleryFragment extends Fragment {
     private Handler mHandler;
     private FrameLayout mNext;
     private VideoData mCurrentVideo;
-    private Bitmap[] mCurrentVideoFrames;
     private PointF mTouchPoint;
     private boolean mIsGoingUp;
     private boolean mIsClick;
@@ -259,7 +258,6 @@ public class VideoGalleryFragment extends Fragment {
                 if (mEnableNext) {
                     mVideoView.pause();
                     AppSocialGlobal.getInstance().tmp_video = new VideoData(mCurrentVideo);
-                    AppSocialGlobal.getInstance().tmp_frames = mCurrentVideoFrames;
                     startActivity(new Intent(getContext(), TrimVideoActivity.class));
                 }
             }

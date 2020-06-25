@@ -427,7 +427,6 @@ public class CameraActivity extends Activity {
         }
 
         mCamera.setDisplayOrientation(displayOrientation);
-
     }
 
     private Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {

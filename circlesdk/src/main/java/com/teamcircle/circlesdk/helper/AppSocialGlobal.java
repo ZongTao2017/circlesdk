@@ -70,7 +70,6 @@ public class AppSocialGlobal {
     public PostData tmp_post;
     public TagData tmp_tag;
     public VideoData tmp_video;
-    public Bitmap[] tmp_frames;
     public ArrayList<PhotoData> galleryPhotos;
     public ArrayList<VideoData> galleryVideos;
     public LinkedHashMap<Integer, CategoryData> allProducts;
@@ -273,7 +272,6 @@ public class AppSocialGlobal {
         int textSize1 = context.getResources().getDimensionPixelSize(R.dimen.text_size_1);
         ss1.setSpan(new AbsoluteSizeSpan(textSize1), 0, name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         ss1.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.blackColor)), 0, name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
         ss1.setSpan(new CustomTypefaceSpan("", typeface), 0, name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         builder.append(ss1);
         builder.append("  ");
